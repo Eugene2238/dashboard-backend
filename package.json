@@ -1,0 +1,50 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "lint-staged": "lint-staged || (npm run pop-stash >> /dev/null && exit 1)",
+    "stash-unstaged": "git stash save -k 'pre-linting-stash' >> /dev/null",
+    "pop-stash": "git stash && git stash pop stash@{1} && git read-tree stash && git stash drop"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint",
+      "prettier --list-different",
+      "git add"
+    ]
+  },
+  "pre-commit": [
+    "stash-unstaged",
+    "lint-staged",
+    "pop-stash"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com"
+  },
+  "dependencies": {
+    "bcryptjs": "latest",
+    "body-parser": "latest",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "jwt-simple": "^0.5.5",
+    "mongoose": "^5.4.20",
+    "morgan": "~1.9.0",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-plugin-chai-expect": "^2.0.1",
+    "eslint-plugin-import": "^2.17.3",
+    "lint-staged": "^8.1.7",
+    "pre-commit": "^1.2.2",
+    "prettier": "1.17.1"
+  }
+}
