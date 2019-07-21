@@ -32,12 +32,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(
-  session({
-    secret: 'fj48f48dj38j34rFEF3Df4t',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 60000 }
-  })
+    session({
+        secret: 'fj48f48dj38j34rFEF3Df4t',
+        resave: false,
+        saveUninitialized: true,
+        cookie: { maxAge: 60000 }
+    })
 );
 
 // Use Routes
@@ -46,8 +46,5 @@ app.use('/api/dashboard', dashboardRouter);
 app.use('/api/widget', widgetRouter);
 app.use('/api/template', dashboardTemplateRouter);
 app.use('*', indexRouter);
-
-
-
 
 module.exports = app;
