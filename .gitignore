@@ -92,3 +92,5 @@ typings/
 
 
 .idea
+
+docker/node/.env.prod
