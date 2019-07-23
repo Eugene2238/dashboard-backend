@@ -13,13 +13,7 @@ RUN npm install
 
 COPY . .
 
-COPY ./docker/node/entrypoint.sh /entrypoint.sh
-
-RUN chmod +x /entrypoint.sh
+CMD ["pm2-runtime", "start", "bin/www", "--name", "dashboard-backend"]
 
 LABEL maintainer="Evgenii Koniakhin <eugene2238@gmail.com>" \
       version="1.0"
-
-ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["pm2-runtime", "start", "bin/www", "--name", "dashboard-backend"]
