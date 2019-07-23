@@ -4,6 +4,6 @@ services:
   - docker
 
 after_success:
-  - docker build -t eugene2238/dashboard_backend -f ./docker/node/Dockerfile .
+  - docker build -t eugene2238/dashboard-backend -f ./docker/node/Dockerfile .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push eugene2238/dashboard_backend
+  - docker push eugene2238/dashboard-backend

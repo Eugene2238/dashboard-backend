@@ -22,4 +22,4 @@ LABEL maintainer="Evgenii Koniakhin <eugene2238@gmail.com>" \
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["pm2-runtime", "start", "bin/www", "--name", "dashboard_backend"]
+CMD ["pm2-runtime", "start", "bin/www", "--name", "dashboard-backend"]
